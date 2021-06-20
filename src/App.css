@@ -1,38 +1,135 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-black: #222;
+  --main-green: #82b340;
+  --main-white: #fff;
+  --main-grey: #ececec;
+}
+
+body {
+  background-color: var(--main-white);
+  color: var(--main-black);
+  font-family: "Open Sans", sans-serif;
+}
+
+.navbar {
+  background-color: var(--main-black);
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.nav-links {
+  align-self: center;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-link {
+  color: var(--main-grey);
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-link:hover {
+  color: var(--main-green);
+}
+
+.active {
+  color: var(--main-green);
+}
+
+.tourlist {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .tourlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media screen and (min-width: 992px) {
+  .tourlist {
+    width: 85vw;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (min-width: 1140px) {
+  .tourlist {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tour {
+  background-color: var(--main-grey);
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+}
+
+.tour img {
+  width: 100%;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  display: block;
+}
+
+.img-container {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  display: block;
+  top: 5%;
+  right: 5%;
+  color: var(--main-green);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  opacity: 0;
+}
+
+.img-container:hover .close-btn {
+  opacity: 1;
+}
+
+.tour-info {
+  padding: 1rem 0.5rem;
+}
+
+.tour-info h3 {
+  text-transform: uppercase;
+  color: var(--main-green);
+}
+
+.tour-info h4 {
+  text-transform: capitalize;
+  color: var(--main-black);
+  margin: 0.2rem 0 0.6rem 0;
+}
+
+.tour-info h5 {
+  text-transform: capitalize;
+}
+
+.tour-info h5 span {
+  color: var(--main-green);
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
